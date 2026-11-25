@@ -1,13 +1,13 @@
 # Saltmarsh AI website: notes for Claude
 
-Matt Mow's consulting company site. One static page (`index.html`) on Cloudflare Pages; pushing to `main` deploys it.
+Matt Mow's consulting company site. One static page (`public/index.html`) served by a Cloudflare Worker with static assets (`wrangler.jsonc`); pushing to `main` deploys it. Only `public/` is published, so keep notes and docs outside it.
 
 ## Writing style (all text on the site)
 
 - Never use an em dash. Never use the word "honestly." Avoid filler like "just," "actually," "literally," "leverage," "utilize."
 - Use the Oxford comma.
 - Use contractions. Keep sentences short and direct.
-- Check before committing: `grep -n "—" index.html README.md` should find nothing.
+- Check before committing: `grep -n "—" public/index.html README.md` should find nothing.
 
 ## Content rules
 
