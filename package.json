@@ -1,0 +1,8 @@
+{
+  "name": "saltmarshai-site",
+  "private": true,
+  "description": "Saltmarsh AI website. Static files in public/, served by a Cloudflare Worker.",
+  "scripts": {
+    "build": "echo \"No build step: the site is plain HTML in public/\""
+  }
+}
