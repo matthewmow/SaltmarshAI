@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saltmarsh AI</title>
+<meta name="description" content="Saltmarsh AI is a technology and AI consultancy for schools and small organizations: build-or-buy advice, AI assistants, workflow automation, and staff training. Salt Lake City, Utah.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+/*
+  VOICE: calm, plain, practical. A small studio that answers its own email.
+  IDEA: the marshes on the edge of the Great Salt Lake: quiet, working ground where a lot is happening.
+  PICTURE: a layered marsh scene under a wide sky, red pickleweed in the foreground, a tidal channel running to the mountains.
+  COLOUR and TYPE: salt white, marsh green, grass gold, brine blue, pickleweed red as the one sharp accent; Young Serif headings, Figtree text.
+  LAYOUT: full-bleed landscape hero, a calm salt-white middle, then the marsh-green band carries the case study through to the footer.
+*/
+:root{
+  color-scheme:light;
+  --salt:#F7F7F2;
+  --ink:#18231F;
+  --marsh:#23463F;
+  --grass:#8C9A4E;
+  --brine:#CFE3DF;
+  --pickle:#B23A48;
+  --muted:#55625B;
+  --rule:#DDE3DC;
+  --serif:"Young Serif", Georgia, "Times New Roman", serif;
+  --sans:Figtree, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --measure:36rem;
+}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:24px}
+body{margin:0;background:var(--salt);color:var(--ink);font:400 1.0625rem/1.6 var(--sans);overflow-x:clip}
+a{color:inherit;text-decoration-color:var(--pickle);text-decoration-thickness:2px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:3px}
+:focus-visible{outline:3px solid var(--pickle);outline-offset:3px;border-radius:3px}
+.wrap{max-width:72rem;margin:0 auto;padding:0 max(5vw,1.25rem)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;text-wrap:balance;margin:0}
+h2{font-size:clamp(2rem,4vw,2.9rem);line-height:1.08;margin-bottom:1.25rem}
+h3{font-size:1.35rem;line-height:1.2;margin-bottom:.4rem}
+p{margin:0 0 1rem;max-width:var(--measure)}
+
+/* Hero */
+.hero{position:relative;display:flex;flex-direction:column;background:linear-gradient(#F7F7F2,#EFF4F0)}
+.hero .land{display:block;width:100%;height:clamp(230px,30vw,460px);order:2}
+.hero .wrap{position:relative;width:100%;padding-top:1.5rem;padding-bottom:clamp(1rem,3vw,2rem);order:1}
+.mark{display:flex;align-items:center;gap:.6rem;font:400 1.35rem/1 var(--serif);text-decoration:none}
+.mark svg{position:static;width:1.9rem;height:1.9rem}
+.hero .intro{margin-top:clamp(2rem,6vh,4rem);max-width:46rem}
+.nw{white-space:nowrap}
+.hero h1{text-wrap:wrap;font-size:clamp(2.6rem,5.6vw,4.4rem);line-height:1.02;margin-bottom:1.25rem}
+.hero .lede{font-size:clamp(1.1rem,1.6vw,1.3rem);line-height:1.5;max-width:34rem;margin-bottom:2rem}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem 1.25rem;align-items:center}
+.btn{display:inline-flex;align-items:center;min-height:2.9rem;padding:.7rem 1.35rem;border-radius:999px;background:var(--pickle);color:#fff;font-weight:600;text-decoration:none}
+.btn:hover{background:#9A2F3D}
+.textlink{font-weight:600}
+
+section{padding:clamp(3.5rem,8vw,6.5rem) 0}
+.intro-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:1rem 4rem;align-items:start;margin-bottom:2.5rem}
+.intro-row p{color:var(--muted);margin-top:.6rem}
+
+/* Services: a ruled list, not cards */
+.services{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.services li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:.5rem 4rem;padding:1.75rem 0;border-bottom:1px solid var(--rule)}
+.services ul{margin:.25rem 0 0;padding-left:1.1rem;color:var(--muted)}
+.services ul li{display:list-item;padding:0;border:0;margin:0 0 .3rem}
+
+/* Principles */
+.principles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2.25rem 4rem;margin:0;padding:0;list-style:none}
+.principles li{padding-left:1.25rem;border-left:3px solid var(--grass)}
+.principles p{color:var(--muted);margin:0}
+
+/* Marsh band: case study, process, about, contact */
+.band{background:var(--marsh);color:#EEF3EE}
+.band a{text-decoration-color:#E58A95}
+.band .muted{color:#B9CBC3}
+.case{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:2rem 4rem;align-items:start}
+.status{display:inline-flex;align-items:center;gap:.5rem;font-size:.95rem;color:#B9CBC3;margin-bottom:1rem}
+.status::before{content:"";width:.6rem;height:.6rem;border-radius:50%;background:var(--brine)}
+.case dl{margin:0;display:grid;gap:1.25rem}
+.case dt{font-family:var(--serif);font-size:1.15rem;margin-bottom:.2rem;color:#fff}
+.case dd{margin:0;color:#C9D8D1}
+
+.steps{counter-reset:s;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2rem}
+.steps li{counter-increment:s;border-top:1px solid rgba(238,243,238,.35);padding-top:1rem}
+.steps li::before{content:counter(s);display:block;font:400 2.2rem/1 var(--serif);color:#E58A95;margin-bottom:.75rem}
+.steps p{color:#C9D8D1;margin:0}
+
+.divider{border:0;border-top:1px solid rgba(238,243,238,.2);margin:0}
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:1rem 4rem}
+.contact{text-align:left}
+.contact .btn{background:#E58A95;color:var(--ink)}
+.contact .btn:hover{background:#F0A3AC}
+footer{background:var(--marsh);color:#9FB5AC;font-size:.9rem;padding:0 0 2.5rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 2rem;border-top:1px solid rgba(238,243,238,.2);padding-top:1.5rem}
+
+@media (max-width:760px){
+  .intro-row,.services li,.case,.about{grid-template-columns:minmax(0,1fr)}
+  .principles{grid-template-columns:minmax(0,1fr)}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:460px){.steps{grid-template-columns:minmax(0,1fr)}}
+@media (prefers-reduced-motion:no-preference){
+  #blades{opacity:0;transform:translateY(12px);animation:grow 1.4s .2s ease-out forwards}
+  @keyframes grow{to{opacity:1;transform:none}}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="land" viewBox="0 430 1600 470" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#F7F7F2"/>
+        <stop offset=".55" stop-color="#EEF3EF"/>
+        <stop offset="1" stop-color="#D6E7E2"/>
+      </linearGradient>
+      <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#DDEDEA"/>
+        <stop offset="1" stop-color="#B9D6D1"/>
+      </linearGradient>
+      <linearGradient id="near" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#7E8C43"/>
+        <stop offset="1" stop-color="#55632E"/>
+      </linearGradient>
+    </defs>
+    <rect width="1600" height="900" fill="url(#sky)"/>
+    <!-- Wasatch Front, far off -->
+    <path d="M0 560 L90 530 L170 548 L260 500 L330 520 L410 470 L480 498 L560 455 L640 490 L720 462 L800 505 L880 478 L960 520 L1040 486 L1130 515 L1210 470 L1290 500 L1370 458 L1450 492 L1530 470 L1600 488 L1600 600 L0 600Z" fill="#C5D7D2"/>
+    <path d="M0 585 L120 565 L240 578 L380 556 L520 574 L680 552 L820 576 L980 558 L1120 578 L1280 560 L1440 576 L1600 562 L1600 610 L0 610Z" fill="#B3CAC4"/>
+    <!-- open water of the lake -->
+    <rect y="596" width="1600" height="40" fill="url(#water)"/>
+    <path d="M140 612 H330 M520 606 H640 M900 618 H1120 M1300 609 H1450" stroke="#F4F8F6" stroke-width="2" stroke-linecap="round"/>
+    <!-- far marsh -->
+    <path d="M0 628 C200 618 380 636 560 626 C760 615 940 640 1140 628 C1320 618 1460 634 1600 624 L1600 700 L0 700Z" fill="#A9B06E"/>
+    <!-- middle marsh -->
+    <path d="M0 668 C180 650 330 676 520 660 C720 644 900 678 1110 662 C1300 648 1450 672 1600 658 L1600 780 L0 780Z" fill="#8C9A4E"/>
+    <!-- near marsh -->
+    <path d="M0 760 C160 744 300 770 500 752 C640 740 760 762 860 758 C1000 752 1140 770 1300 750 C1440 734 1520 756 1600 748 L1600 900 L0 900Z" fill="url(#near)"/>
+    <!-- tidal channel winding back toward the lake -->
+    <path d="M760 900 C700 840 860 800 820 760 C780 722 640 720 700 690 C750 666 900 676 880 652 C866 636 820 634 840 626 L862 626 C852 636 902 640 910 654 C930 684 790 690 760 702 C720 720 860 730 900 762 C950 804 820 850 900 900Z" fill="url(#water)"/>
+    <g id="pickle"></g>
+    <g id="blades"></g>
+  </svg>
+
+  <div class="wrap">
+    <a class="mark" href="#top" id="top" aria-label="Saltmarsh AI home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#23463F"/><path d="M6 21 C10 19 13 22 16 20 C19 18 22 21 26 19" stroke="#CFE3DF" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M11 20 L10 11 M15 20 L16 8 M19 19 L21 12" stroke="#C9B86A" stroke-width="2" stroke-linecap="round"/></svg>
+      Saltmarsh AI
+    </a>
+    <div class="intro">
+      <h1>We bring the expertise.<br> You make the call.</h1>
+      <p class="lede">Saltmarsh is a technology and AI consultancy for schools and small organizations. Build or buy, advise or create, we fit the way you work and bring 25 years of technology consulting and enablement to the decisions in front of you. We succeed when you save time, save money, or bring in revenue, and you're glad you made the call.</p>
+      <div class="actions">
+        <a class="btn" href="#contact">Book an intro call</a>
+        <a class="textlink" href="#work">See the work</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section aria-labelledby="what">
+    <div class="wrap">
+      <div class="intro-row">
+        <h2 id="what">What Saltmarsh does</h2>
+        <p>Some organizations need a tool built. Others need help choosing one, or deciding whether AI is the answer at all. Saltmarsh does both, and the advice never depends on whether there's something to build.</p>
+      </div>
+      <ul class="services">
+        <li>
+          <h3>Technology and AI decisions</h3>
+          <div>
+            <p>Independent advice before you commit money or staff time. Whether to build, buy, or wait; whether to have it hosted for you or run it yourself; which vendor fits. Those are your organization's calls, and Saltmarsh helps you make them with clear costs, timelines, and trade-offs. With today's development timelines, a system built around your workflow often costs less and does more than a packaged product, but sometimes buying is the right call, and you'll hear that too.</p>
+            <ul>
+              <li>Build, buy, or a mix: cost and timeline comparison</li>
+              <li>Hosted and managed for you, or run in your own environment</li>
+              <li>Vendor selection, demo questions, and contract review</li>
+              <li>Integration check against the systems you already run</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <h3>AI assistants</h3>
+          <div>
+            <p>Chat assistants for your website or your staff that answer from the content you approve, show their source, and hand off to a person when they don't know.</p>
+            <ul>
+              <li>Admissions and enrollment questions</li>
+              <li>Internal help desks for policies and procedures</li>
+              <li>Booking calls and capturing leads, with consent</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <h3>Workflow automation</h3>
+          <div>
+            <p>Connect the tools you already pay for so routine steps happen on their own, triggered by real events instead of someone remembering.</p>
+            <ul>
+              <li>Email triage and action-item tracking</li>
+              <li>Calendar, CRM, and spreadsheet hand-offs</li>
+              <li>Daily briefings built from your own data</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <h3>Team AI training</h3>
+          <div>
+            <p>Hands-on workshops and coaching built on 25 years of corporate learning design, so staff learn AI on their own work, not on toy examples.</p>
+            <ul>
+              <li>Workshop series for whole departments</li>
+              <li>Step-by-step setup guides for each person's workflow</li>
+              <li>Responsible-use guidelines your leaders can sign off on</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="how" style="padding-top:0">
+    <div class="wrap">
+      <div class="intro-row">
+        <h2 id="how">How it gets built</h2>
+        <p>The same rules apply to every project, because they're what make people willing to rely on an AI tool.</p>
+      </div>
+      <ul class="principles">
+        <li><h3>Answers come from your content</h3><p>If the assistant can't point to an approved source, it says so and offers a person. It never makes up a fact about your organization.</p></li>
+        <li><h3>Privacy is designed in</h3><p>Consent is checked in code, not only in a prompt. Student and customer data stays where your policies say it can live, FERPA included.</p></li>
+        <li><h3>Tested before every release</h3><p>Each tool ships with a set of real questions and expected answers. Accuracy and safety tests have to pass before anything goes live.</p></li>
+        <li><h3>You choose who runs it</h3><p>Saltmarsh can host and maintain it for you, or your IT team can run it in your own environment. Either way, greetings, content, and routing are settings your staff change themselves.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="band">
+    <section id="work" aria-labelledby="case">
+      <div class="wrap case">
+        <div>
+          <span class="status">In development, launching 2027</span>
+          <h2 id="case">An enrollment assistant for a health-professions university</h2>
+          <p class="muted">Prospective students arrive from ads with questions about programs, cost, and schedules, and many want answers before they're ready to talk to anyone. A packaged chatbot couldn't integrate with the university's systems the way they needed, so they chose a build designed around them.</p>
+        </div>
+        <dl>
+          <div><dt>What it does</dt><dd>Answers prospects' questions from the university's approved content with a source link, learns what program they're considering, and books a call with an admissions advisor.</dd></div>
+          <div><dt>What staff get</dt><dd>An admin portal with leads, transcripts, and the questions prospects ask most, plus settings they manage themselves.</dd></div>
+          <div><dt>How it's held to account</dt><dd>It always says it's an AI, never promises admission or aid, and must pass automated accuracy and safety tests before each release.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section aria-labelledby="process">
+      <div class="wrap">
+        <h2 id="process">How a project runs</h2>
+        <ol class="steps">
+          <li><h3>Discover</h3><p>We map the questions and hand-offs eating your team's week, pick the one worth fixing first, and decide whether to build it, buy it, or neither.</p></li>
+          <li><h3>Prototype</h3><p>You see a working version within weeks, on your own content, not a slide.</p></li>
+          <li><h3>Pilot</h3><p>Two-week cycles, each ending in a demo, with real users and real feedback.</p></li>
+          <li><h3>Run it</h3><p>Saltmarsh hosts and supports it, or your team takes it over with a guide and training. Your call.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section aria-labelledby="who">
+      <div class="wrap about">
+        <h2 id="who">Who you'll work with</h2>
+        <div>
+          <p>Saltmarsh is led by Matt Mow. I started in technology consulting at Microsoft and have spent my career since helping organizations like Amazon and Carvana adopt new technology. Today I coach graduate students in analytics and information systems, and I build the AI tools a university career team uses every day.</p>
+          <p>I lead every engagement myself: I design the product, plan the work, review every change, and stay your main point of contact. When a project needs more hands or deeper expertise, I bring in trusted partners, including developers, data specialists, and fellow consultants, so the team fits the job without adding layers between you and the work.</p>
+          <p class="muted">The name comes from the marshes on the edge of the Great Salt Lake: quiet ground where a lot of important work gets done.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="contact" class="contact" aria-labelledby="talk">
+      <div class="wrap">
+        <h2 id="talk">Let's talk about your busywork</h2>
+        <p class="muted">A 30-minute call is enough to find out whether there's a tool worth building. No pitch deck required.</p>
+        <div class="actions">
+          <a class="btn" href="mailto:mattmow@outlook.com?subject=Saltmarsh%20AI%20intro%20call">Email to book a call</a>
+          <span class="muted">mattmow@outlook.com</span>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Saltmarsh AI, Salt Lake City, Utah</span>
+    <span>Built with Claude Code</span>
+  </div>
+</footer>
+
+<script>
+{
+  // Marsh grass: a few hundred thin blades along the near bank, seeded so the scene is the same on every visit.
+  const g = document.getElementById('blades');
+  let seed = 7;
+  const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const colors = ['#5E6B31', '#6F7E3C', '#A89A4F', '#C9B86A', '#4C5928'];
+  let d = {}, out = '';
+  const bank = x => (x < 760 ? 762 - 10 * Math.sin(x / 140) : 760 - 8 * Math.sin(x / 120));
+  for (let i = 0; i < 520; i++) {
+    let x = rnd() * 1600;
+    if (x > 730 && x < 930) continue; // leave the channel open
+    const base = bank(x) + rnd() * 150;
+    const h = 22 + rnd() * 70 * (base / 900);
+    const lean = (rnd() - 0.5) * 22;
+    const c = colors[Math.floor(rnd() * colors.length)];
+    (d[c] = d[c] || []).push(`M${x.toFixed(0)} ${base.toFixed(0)} Q${(x + lean / 3).toFixed(0)} ${(base - h / 2).toFixed(0)} ${(x + lean).toFixed(0)} ${(base - h).toFixed(0)}`);
+  }
+  for (const c in d) out += `<path d="${d[c].join(' ')}" stroke="${c}" stroke-width="2.2" fill="none" stroke-linecap="round"/>`;
+  g.innerHTML = out;
+
+  // Pickleweed: low clusters of short red stems, the way it looks around the lake in the fall.
+  const pk = document.getElementById('pickle');
+  let p = '';
+  const reds = ['#B23A48', '#C24C59', '#9C3040'];
+  [[120, 850, 110], [440, 812, 60], [1120, 830, 120], [1500, 872, 90], [1230, 772, 45]].forEach(([cx, cy, r]) => {
+    for (let i = 0; i < r * 1.6; i++) {
+      const a = rnd() * Math.PI * 2, dist = Math.sqrt(rnd()) * r;
+      const x = cx + Math.cos(a) * dist, y = cy + Math.sin(a) * dist * 0.22;
+      const h = 6 + rnd() * 10;
+      p += `<path d="M${x.toFixed(0)} ${y.toFixed(0)} l${((rnd() - .5) * 5).toFixed(1)} ${(-h).toFixed(1)}" stroke="${reds[Math.floor(rnd() * 3)]}" stroke-width="4" stroke-linecap="round"/>`;
+    }
+  });
+  pk.innerHTML = p;
+}
+</script>
+</body>
+</html>
