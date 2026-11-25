@@ -16,8 +16,7 @@ The public site for Saltmarsh AI, a technology and AI consultancy for schools an
 - Build command: leave empty. Deploy command: `npx wrangler deploy`
 - Settings > Domains & Routes: `saltmarshai.com` and `www.saltmarshai.com`
 
-## Before going public
+## Open items
 
-- Swap the contact email for the Saltmarsh address once Microsoft 365 is set up.
-- Confirm the case study can stay before the client contract is signed.
-- Confirm the About section's mention of the university role.
+- Contact button uses Matt's personal email for now. Swap in the Saltmarsh address once Microsoft 365 is set up.
+- The enrollment case study stays anonymous until the client gives permission to name them.
