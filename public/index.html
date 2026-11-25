@@ -93,6 +93,22 @@ section{padding:clamp(3.5rem,8vw,6.5rem) 0}
 .contact{text-align:left}
 .contact .btn{background:#E58A95;color:var(--ink)}
 .contact .btn:hover{background:#F0A3AC}
+/* More work: three columns on laptops, a swipeable strip on phones */
+.more{padding-top:0}
+.more h2{font-size:clamp(1.6rem,3vw,2.1rem)}
+.strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2.5rem}
+.strip article{border-top:1px solid rgba(238,243,238,.35);padding-top:1.25rem}
+.strip h3{color:#fff}
+.strip p{color:#C9D8D1;margin-bottom:.75rem}
+.strip .stack{font-size:.95rem;color:#9FB5AC;margin-bottom:0}
+.strip-nav{display:none}
+@media (max-width:760px){
+  .strip{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:1rem;padding-bottom:.5rem;scrollbar-width:none}
+  .strip::-webkit-scrollbar{display:none}
+  .strip article{flex:0 0 86%;scroll-snap-align:start;background:rgba(255,255,255,.06);border:1px solid rgba(238,243,238,.18);border-radius:14px;padding:1.25rem}
+  .strip-nav{display:flex;gap:.75rem;margin-top:1rem}
+  .strip-nav button{min-height:44px;padding:0 1.2rem;border-radius:999px;border:1px solid rgba(238,243,238,.45);background:transparent;color:#EEF3EE;font:600 1rem var(--sans);cursor:pointer}
+}
 footer{background:var(--marsh);color:#9FB5AC;font-size:.9rem;padding:0 0 2.5rem}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 2rem;border-top:1px solid rgba(238,243,238,.2);padding-top:1.5rem}
 
@@ -251,6 +267,37 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem
       </div>
     </section>
 
+    <section class="more" aria-labelledby="more">
+      <div class="wrap">
+        <h2 id="more">More of the work</h2>
+        <div class="strip" id="strip" tabindex="0" aria-label="More projects, scroll sideways on a phone">
+          <article>
+            <span class="status">In production</span>
+            <h3>ActionHub</h3>
+            <p>An inbox agent that reads incoming email, picks out the messages that need action, and adds them to a to-do list with a priority, the source message, and links to related reference material.</p>
+            <p class="stack">Built with Zapier, Claude, Supabase, and a web dashboard.</p>
+          </article>
+          <article>
+            <span class="status">Live</span>
+            <h3>Shared career planning</h3>
+            <p>A career plan that students and their coaches work on together. Students build it in a phone-friendly app and share it with their coach, so every meeting starts from the same plan.</p>
+            <p class="stack">Built with a development partner in React and TypeScript, with privacy-first data storage.</p>
+          </article>
+          <article>
+            <span class="status">Live</span>
+            <h3>HiddenCluck</h3>
+            <p>A citywide scavenger hunt for Salt Lake City, built and run end to end: custom domain, database, live maps, and nightly backups. <a href="https://hiddencluck.fun">Visit hiddencluck.fun</a></p>
+            <p class="stack">Built on Cloudflare, Supabase, and Leaflet maps.</p>
+          </article>
+        </div>
+        <div class="strip-nav">
+          <button type="button" data-dir="-1">Previous</button>
+          <button type="button" data-dir="1">Next</button>
+        </div>
+      </div>
+    </section>
+
+
     <hr class="divider">
 
     <section aria-labelledby="process">
@@ -334,6 +381,19 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem
     }
   });
   pk.innerHTML = p;
+}
+{
+  // Phone-width project strip: Previous and Next buttons, plus arrow keys.
+  const strip = document.getElementById('strip');
+  const step = dir => {
+    const card = strip.querySelector('article');
+    strip.scrollBy({ left: dir * (card.offsetWidth + 16), behavior: 'smooth' });
+  };
+  document.querySelectorAll('.strip-nav button').forEach(b => b.addEventListener('click', () => step(+b.dataset.dir)));
+  strip.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); step(1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
+  });
 }
 </script>
 </body>
